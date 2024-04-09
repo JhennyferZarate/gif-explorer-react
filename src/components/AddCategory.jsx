@@ -1,4 +1,5 @@
 import { useState } from "react";
+import PropTypes from "prop-types";
 
 const formatInput = (value) => {
   const words = value.trim().split(" ");
@@ -23,7 +24,7 @@ export const AddCategory = ({ onNewCategory }) => {
   };
 
   return (
-    <form onSubmit={onSubmit} className="input-box">
+    <form onSubmit={onSubmit} aria-label="form" className="input-box">
       <i className="fa fa-search" aria-hidden="true"></i>
       <input
         type="text"
@@ -33,4 +34,8 @@ export const AddCategory = ({ onNewCategory }) => {
       />
     </form>
   );
+};
+
+AddCategory.propTypes = {
+  onNewCategory: PropTypes.func.isRequired,
 };
